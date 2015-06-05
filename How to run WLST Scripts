@@ -1,0 +1,15 @@
+How to run WLST Scripts
+
+1) Change directory:
+     
+     cd $MW_HOME/wlserver_10.3/server/bin/
+
+2) Execute set WLST Environment for you session:
+
+     . ./setWLSEnv.sh
+
+     Note: Keep two dots!!
+
+3) Execute WLST call:
+
+     java weblogic.WLST
