@@ -1,0 +1,44 @@
+How to set CLASSPATH to include OSB API jar
+
+1) Define osb classpath variable.
+     
+     [oracle@bmbuspp wlst]$ OSB_CLASSPATH="/u01/app/oracle/product/fmw/11g/Oracle_OSB1/lib/sb-kernel-api.jar"
+     [oracle@bmbuspp wlst]$ export OSB_CLASSPATH
+     [oracle@bmbuspp wlst]$ echo $OSB_CLASSPATH
+
+2) Redefine CLASSPATH Variable.
+
+     [oracle@bmbuspp wlst]$ CLASSPATH="${CLASSPATH}${OSB_CLASSPATH}"
+     [oracle@bmbuspp wlst]$ export CLASSPATH
+
+3) Check new classpath.
+
+     [oracle@bmbuspp wlst]$ echo $CLASSPATH
+
+NOTE:
+When importing or exporting Oracle Service Bus configurations using WLST, Ant, or the command line:
+
+	* Be sure to include the following in your classpath:
+
+		* OSB_ORACLE_HOME/lib/sb-kernel-api.jar
+
+		* OSB_ORACLE_HOME/lib/sb-kernel-impl.jar
+
+		* OSB_ORACLE_HOME/modules/com.bea.common.configfwk_version
+
+
+	* 
+Be sure the resource JAR names in your scripts contain the correct version numbers.
+
+EXAMPLE: 
+/u01/app/oracle/product/fmw/11g/Oracle_OSB1/lib/alsb.jar
+/u01/app/oracle/product/fmw/11g/wlserver_10.3/server/lib/weblogic.jar
+/u01/app/oracle/product/fmw/11g/Oracle_OSB1/lib/sb-kernel-api.jar
+/u01/app/oracle/product/fmw/11g/Oracle_OSB1/lib/sb-kernel-impl.jar
+/u01/app/oracle/product/fmw/11g/Oracle_OSB1/modules/com.bea.common.configfwk_1.6.0.0.jar
+/u01/app/oracle/product/fmw/11g/oracle_common/util/jython/jython.jar
+
+
+OSB_CLASSPATH="/u01/app/oracle/product/fmw/11g/Oracle_OSB1/lib/alsb.jar:/u01/app/oracle/product/fmw/11g/wlserver_10.3/server/lib/weblogic.jar:/u01/app/oracle/product/fmw/11g/Oracle_OSB1/lib/sb-kernel-api.jar:/u01/app/oracle/product/fmw/11g/Oracle_OSB1/lib/sb-kernel-impl.jar:/u01/app/oracle/product/fmw/11g/Oracle_OSB1/modules/com.bea.common.configfwk_1.6.0.0.jar:/u01/app/oracle/product/fmw/11g/oracle_common/util/jython/jython.jar"
+
+
